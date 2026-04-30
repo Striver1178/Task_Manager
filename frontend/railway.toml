@@ -1,8 +1,8 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm install && npm run build && chmod +x start.sh"
+buildCommand = "npm install && npm run build"
 
 [deploy]
-startCommand = "sh start.sh"
+startCommand = "npx serve -s dist -l $PORT"
 healthcheckPath = "/"
-healthcheckTimeout = 60
+healthcheckTimeout = 30

@@ -10,12 +10,7 @@ const app = express();
 // Security
 app.use(helmet());
 app.use(cors({
-  origin: [
-    process.env.FRONTEND_URL,
-    'http://localhost:5173',
-    'https://taskmanager-production-955c.up.railway.app',
-    'https://taskmanager-production-17fa.up.railway.app',
-  ].filter(Boolean),
+  origin: process.env.FRONTEND_URL || '*',
   credentials: true,
   methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization'],
