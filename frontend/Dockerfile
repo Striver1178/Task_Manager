@@ -4,11 +4,12 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+# Read VITE_API_URL from environment at build time
 ARG VITE_API_URL
 ENV VITE_API_URL=$VITE_API_URL
-RUN npm run build
+RUN echo "Building with VITE_API_URL=$VITE_API_URL" && npm run build
 
-# Production stage
+# Production stage  
 FROM node:20-alpine
 WORKDIR /app
 RUN npm install -g serve
