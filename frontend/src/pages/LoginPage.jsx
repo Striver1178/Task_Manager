@@ -66,7 +66,7 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <p className="text-dark-600 text-sm">© 2025 TeamFlow. Built for modern teams.</p>
+        <div />
       </div>
 
       {/* Right panel */}
